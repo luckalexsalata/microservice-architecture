@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<head><link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}"></head>
+<div class="white_area">
+<h1> Last update:</h1>
+{% if no_update == 1 %}
+    <h2> Do update</h2>
+{% else %}
+    <h2>Product: {{Product}};  Weight: {{weight}} </h2>
+{% endif %}
+<form action="/del" method="post">
+    <input type="submit" value="delete"></input>
+</form>
+</div>

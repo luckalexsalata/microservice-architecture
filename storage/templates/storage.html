@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head><link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}"></head>
+<div class="white_area">
+    <h1> Storage</h1>
+    <div class="form">
+        <form action="/new_storage" method="post">
+            <input type = "text" name = "product_name" placeholder="product name" required></input>
+            <input type = "number" step="1" name = "weight" placeholder="weight" required></input>
+            <input type="submit" value="update" ></input>
+        </form>
+        <form action="/add" method="post">
+            <input type = "text" name = "product_name" placeholder="product name"required></input>
+            <input type = "number" step="1" name = "weight" placeholder="weight" required></input>
+            <input type="submit" value="add" ></input>
+        </form>
+    </div>
+    <div class = "ord">
+        {% for item in items %}
+            <form action="/del" method="post">
+               <input type="hidden"  name = "product_name" value = {{item.product_name}}></input>
+               <h2>{{item.product_name}} :  {{item.weight}} kilograms <input type="image" src="static/del.png"></input> </h2>
+            </form>
+        {% endfor %}
+
+    </div>
+</div>

@@ -1,0 +1,88 @@
+version: '3'
+services:
+  orders:
+    build: orders/.
+    command: python -u app.py
+    ports:
+       - "5000:5000"
+    depends_on:
+       - redis
+       - db-1
+       - db-2
+       - db-3
+
+  address:
+    build: address/.
+    command: python -u app.py
+    ports:
+      - "8082:8082"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis
+
+  db-1:
+    image: mongo
+    expose:
+      - 27017
+    depends_on:
+      - db-2
+      - db-3
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
+    #command:
+    #  - "--smallfiles"
+    #  - "--replSet"
+    #  - "rs0"
+  db-2:
+    image: mongo
+    #command: "--bind_ip_all --replSet rs0"
+    # - "--smallfiles"
+     # - "--replSet"
+    #  - "rs0"
+    expose:
+      - 27017
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
+
+
+  db-3:
+    image: mongo
+    #command: "--bind_ip_all --replSet rs0"
+    #  - "--smallfiles"
+     # - "--replSet"
+   #   - "rs0"
+    expose:
+      - 27017
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
+
+  storage:
+    build: storage/.
+    command: python -u app.py
+    ports:
+       - "8080:8080"
+    depends_on:
+       - pgdb
+       - redis
+
+
+  last_storage_update:
+    build: update/.
+    command: python -u app.py
+    ports:
+      - "8081:8081"
+    depends_on:
+      - redis
+
+
+  pgdb:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+
+
+
+

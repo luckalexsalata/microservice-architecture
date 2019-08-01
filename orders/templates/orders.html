@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head><link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}"></head>
+<div class="white_area">
+    <div class="form">
+        <form action="/new_order" method="post">
+            <input type = "text" name = "name"  placeholder="name" required></input>
+            <select name = "pizza"  placeholder="pizza" required>
+                <option>Margherita</option>
+                <option>California</option>
+                <option>Carbonara</option>
+                <option>Pugliese</option>
+                <option>Pepperoni</option>
+                <option>Texas</option>
+                <option>Hawaiian</option>
+                <option>BBQ</option>
+                <option>Bavarian</option>
+            </select>
+<!--            <input type = "text" name = "pizza"  placeholder="pizza"></input>-->
+            <input type = "text" name = "address"  placeholder="address" required></input>
+            <input type="submit" value="add"></input>
+
+        </form>
+    </div>
+<h1>Oreders:</h1>
+    <div class = "ord">
+{% for item in items %}
+   <form action="/del_order" method="post">
+       <input type="hidden"  name = "name" value = {{item.name}}></input>
+       <input type="hidden"  name = "pizza" value = {{item.pizza}}></input>
+       {{item.name}} ordered {{item.pizza}} wait! <input type="image" src="static/del.png"></input>
+   </form>
+{% endfor %}
+</div>
+</div>

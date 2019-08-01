@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<head><link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}"></head>
+
+<div class="white_area">
+<h1> Addresses</h1>
+{% for item in items %}
+  <h2>Pizza: {{item['pizza']}}; Address: {{item['address']}}</h2>
+{% endfor %}
+
+<form action="/delete_all" method="post">
+    <input type="submit" value="delete all"></input>
+</form>
+</div>

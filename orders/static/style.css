@@ -1,0 +1,53 @@
+
+body {background-image:url(background.jpg)}
+
+.white_area{
+background:rgba(255,255,255, 0.9);
+border-radius: 10px;
+margin: 5% auto;
+width: 60%;
+}
+.form{
+margin: ;
+
+}
+select{  width: 20%;
+  margin: 2% 2%;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: center;}
+input[type=text],input[type=number] {
+  width: 20%;
+  margin: 2% 2%;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+input[type=submit] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding:12px 20px;
+  margin: 2% 2%;
+
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  }
+
+h1{
+margin: 5% auto;
+text-align:center
+}
+
+.ord{
+ font-size:20px;
+}
+input[type=image] {
+width: 20px;
+}
