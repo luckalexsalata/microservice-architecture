@@ -1,5 +1,5 @@
 # microservice-architecture
-Example micro services architecture, with docker, flask, mongodb, redis, postgres
+Example micro services architecture with docker, flask, mongodb, redis, postgres
 ## Services
 ![Services](architecture.png)
 ## Running examples
