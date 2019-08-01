@@ -1,7 +1,7 @@
 # microservice-architecture
 Example micro services architecture, with docker, flask, mongodb, redis, postgres
 ## Services
-![Services](pizza.pdf)
+![Services](architecture.png)
 ## Running examples
 First you need to start microservices
 ```sh
